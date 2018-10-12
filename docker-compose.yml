@@ -10,7 +10,7 @@ services:
             rabbitmq_network:
                 ipv4_address: 172.18.1.11
     client:
-        image: rabbitmq-client-java-413:0.0.1
+        image: rabbitmq-client-java-reproduce-413:0.0.1
         container_name: 'client'
         hostname: 'client'
         networks:
