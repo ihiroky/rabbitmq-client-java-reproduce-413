@@ -1,0 +1,23 @@
+version: '3'
+services:
+    rabbitmq:
+        image: rabbitmq:3-management
+        container_name: rabbitmq1
+        hostname: rabbitmq
+        ports:
+            - '15672:15672'
+        networks:
+            rabbitmq_network:
+                ipv4_address: 172.18.1.11
+    client:
+        image: rabbitmq-client-java-413:0.0.1
+        container_name: 'client'
+        hostname: 'client'
+        networks:
+            rabbitmq_network:
+                ipv4_address: 172.18.1.21
+networks:
+    rabbitmq_network:
+        ipam:
+            config:
+                - subnet: 172.18.1.0/24
